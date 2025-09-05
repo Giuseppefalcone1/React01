@@ -1,3 +1,8 @@
-function ({children}){
-    return <a href="#">{children}</a>;
+function Link({children}){
+    return (
+        <>
+        {children}        
+        </>
+    )    ;
 }
+export default Link
