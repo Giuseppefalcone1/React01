@@ -2,19 +2,16 @@ function Navbar(){
     
     return(
     <>
-        <ul>
-            <li><button>Home</button></li>
-            <li><button>Contatti</button></li>
-            <li><button>Auto disponibili</button></li>
-            <li><button>Sedi</button></li>
-        </ul>
-        <ul>
-            <li><button>Accedi</button></li>
-            <li><button>Registrati</button></li>
-        </ul>
+       <nav style={{ borderRadius: "5px", padding: "10px", backgroundColor: "#494949ff" }}>
+           <ul style={{ display: "flex", gap: "5px", listStyle: "none", margin: 0, padding: 0, color: "white" }}>
+           <button>Home</button>
+           <button>Contatti</button>
+           <button>Auto</button>
+           </ul>
+       </nav>
     </>
     )
 
 }
 
-export default Componente1
+export default Navbar
