@@ -7,6 +7,11 @@ function Navbar(){
         update(count+1);
     }
 
+   /* const[items,setItems] = useState(["array vuoto"])
+    const newItem = prompt("inserisci valore");
+    const addItem = ()=>{
+    }*/ //costruire un array con i valori inseriti dall'utente
+
     const newItem = "nuovo elemento aggiunto";
     const[array, setArray] = useState([1,2,3])
     const addItem = ()=>{
