@@ -1,3 +1,4 @@
+//qui definiamo props, a cui assegneremo valori in App, app prenderà valori da json
 function Card({id,marca,modello,anno}){
     return(
         <>
