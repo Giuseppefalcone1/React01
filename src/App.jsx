@@ -8,25 +8,23 @@ import cars from './data/cars.json'
 //miei componenti----------------------------------
 import Navbar from './components/Navbar.jsx'
 import Card from './components/Card.jsx'
+import CardForm from './components/CardForm.jsx'
 //fine componenti che ho creato--------------------
 
 function App() {
   
   return(
     <>
+    <CardForm/>
       {/*le graffe nel fragment incapsulano codice js*/}
-
       {cars.map(car=>(
-
         <Card
           key={car.id}
           marca={car.marca}
           modello={car.modello}
           anno={car.anno}
         />
-      ))
-
-      } 
+      ))} 
       <Navbar/>
     </>
   )
