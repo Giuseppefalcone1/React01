@@ -4,14 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import cars from './data/cars.json'
-
+import Form from './components/Form.jsx'
+import Navbar from './components/Navbar.jsx'
 
 function App() {
 
-
-  return(
+  return (
     <>
-      <h1>ciao</h1>
+    {/* Navbar */}
+      <Form/>
     </>
   )
 }
