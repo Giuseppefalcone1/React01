@@ -8,11 +8,26 @@ import Form from './components/Form.jsx'
 import Navbar from './components/Navbar.jsx'
 
 function App() {
+  
+  const [carList, setCarList] = useState([])
 
+  const addCar = (newCar) => {
+    setCarList((prevList)=>[...prevList, newCar])
+  }
+
+  
   return (
     <>
     {/* Navbar */}
-      <Form/>
+      <Form addCar={addCar}/>
+
+      <ul>
+        {carList.map(car => 
+          <>
+            <li key={car.id}></li>
+            <li>{car.produttore}</li>
+          </>)}
+      </ul>
     </>
   )
 }

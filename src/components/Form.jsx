@@ -1,51 +1,73 @@
 import { useState } from 'react'
-function Form(){
 
-    const [formData,setFormData] = useState({
-    produttore:"",
-    modello:"",
-    colore:"",
-  })
+function Form({ addCar }) {
 
-    const handleChange = (e) => {
+  const [formData, setFormData] = useState({
+    produttore: "",
+    modello: "",
+    anno: "",
+    disponibile: false,
+  });
 
-    const name = e.target.name;
-    const value = e.target.value;  // 1. catturiamo il name e value dell'input
-  
-    setFormData((prev) => ({...prev, [name]: value}));//2. cambiamo con i nuovi dati nel formData
-    console.log(name, value);
-  }
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
 
-    //handleSubmit
-    //handleClick
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value
+    });
+  };
 
-    return(
-        <>
-            <form onSubmit={handleSubmit}>
+  const handleSubmit = (e) => {
+    e.preventDefault(); // 👈 IMPORTANTISSIMO
 
-            <input type="text"
-                name='produttore'
-                value={formData.produttore} //catturiamo l'input formData.produttore e lo inscatoliamo nel value
-                onChange={handleChange} //ogni cambiamento richiamiamo la funzione handleChange
-            />
+    const car = {
+      id: Math.random(),
+      produttore: formData.produttore,
+      modello: formData.modello,
+      anno: formData.anno,
+      disponibile: formData.disponibile,
+    };
 
-            <input type="text"
-                name='modello'
-                value={formData.modello}
-                onChange={handleChange}
-            />
+    addCar(car); // 👈 aggiunge l’auto
+  };
 
-            <input type="text"
-                name='anno'
-                value={formData.anno}
-                onChange={handleChange}
-            />
+  return (
+    <>
+      <form onSubmit={handleSubmit}> {/* all'invio chiamo handleSubmit */ }
 
-                <button onClick={handleClick}></button>
-            </form>
-        </>
-  )
+        <input
+          type="text"
+          name="produttore"
+          value={formData.produttore}
+          onChange={handleChange}
+        />
 
+        <input
+          type="text"
+          name="modello"
+          value={formData.modello}
+          onChange={handleChange}
+        />
+
+        <input
+          type="text"
+          name="anno"
+          value={formData.anno}
+          onChange={handleChange}
+        />
+
+        <input
+          type="checkbox"
+          name="disponibile"
+          checked={formData.disponibile}
+          onChange={handleChange}
+        />
+
+        <button type="submit">Aggiungi</button>
+      </form>
+    </>
+  );
 }
 
-export default Form
+export default Form;
